@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yolov7-inference-sdk"
+version = "0.1.0"
+description = "Small adapter layer for running YOLOv7 inference from an external YOLOv7 checkout."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "numpy>=1.23",
+  "opencv-python>=4.7",
+  "torch>=1.13",
+]
+
+[tool.setuptools.packages.find]
+include = ["yolov7_inference_sdk*"]
+
