@@ -4,19 +4,18 @@
 ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white&style=flat-square)
 ![YOLOv7](https://img.shields.io/badge/YOLOv7-external-00FFFF?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-22c55e?style=flat-square)
-![Status](https://img.shields.io/badge/status-portfolio-f59e0b?style=flat-square)
 
-A thin **adapter layer for running YOLOv7 inference** from an external YOLOv7 checkout. It keeps this repository focused on integration code: typed detection records, JSON export, and OpenCV annotation utilities. The upstream YOLOv7 implementation and `.pt` weights are intentionally not vendored.
+Small adapter for running YOLOv7 inference from an external YOLOv7 checkout. This repo contains the integration code, typed detection records, JSON export, and OpenCV annotation helper; the upstream YOLOv7 code and `.pt` weights stay outside the repository.
 
 ![Inference flow](assets/workflow.png)
 
-## Features
+## What It Does
 
-- Load YOLOv7 from an external repository path.
-- Run inference on an image file or an already-loaded image array.
-- Return detections as structured `Detection` objects.
-- Draw detections with a small OpenCV annotation helper.
-- Export detections to JSON and annotated images.
+- Loads YOLOv7 from an external repository path.
+- Runs inference on an image file or an already-loaded image array.
+- Returns detections as structured `Detection` objects.
+- Draws detections with a small OpenCV annotation helper.
+- Exports detections to JSON and annotated images.
 
 ## Python API
 
@@ -31,16 +30,16 @@ detections = detector.detect_array(image)
 annotated = draw_boxes(image, detections)
 ```
 
-## Project Structure
+## Layout
 
 ```text
-yolov7-inference-sdk/
-├── assets/                  # workflow diagram + sample gallery
-├── external/                # external YOLOv7 checkout notes
-├── images/                  # bundled sample inputs
-├── models/                  # local weight placeholder (git-ignored)
-├── scripts/                 # CLI example (detect_image.py)
-└── yolov7_inference_sdk/    # maintained SDK code
+Yolov7-Inference-SDK/
+  assets/                  workflow diagram and sample gallery
+  external/                external YOLOv7 checkout notes
+  images/                  bundled sample inputs
+  models/                  local weight location
+  scripts/                 CLI example
+  yolov7_inference_sdk/    SDK code
 ```
 
 ## Installation
@@ -74,13 +73,6 @@ Outputs: `outputs/detections.json` and `outputs/detected.jpg`.
 The repository bundles a few small sample images for quick testing:
 
 ![Sample gallery](assets/sample_gallery.png)
-
-## Roadmap
-
-- Add batch-image and video examples.
-- Add tests for detection serialization and annotation rendering.
-- Add packaging and versioned releases.
-- Add CPU/GPU notes and benchmark timings.
 
 ## License
 
